@@ -1,13 +1,100 @@
-html {
-  font-size: 10px;
-  background: #f5be5f;
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+:root {
+  --background: #000;
+  --text: rgb(255, 255, 255);
+  --highlight: #ff1ead;
 }
 
 body,html {
+  font-size: 10px;
+  background: #f5be5f;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Oswald', sans-serif;
 }
+.container {
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+.theme-switch {
+  --background: rgb(255, 0, 0);
+  --text: rgb(255, 255, 255);
+  color: var(--text);
+  width: 70px;
+  height: 30px;
+  background: rgb(0, 0, 0);
+  border-radius: 50px;
+  position: relative;
+}
+ .switch {
+    background:white;
+    width: 24px;
+    height: 24px;
+    background: #ff1ead;
+    border-radius: 100%;
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    transition: 0.5s all ease;
+  }
+
+
+.light-theme {
+  --background: rgb(0, 0, 0);
+  --text: rgb(255, 255, 255);
+  background: var(--background);
+}
+.light-theme .theme-switch {
+    background: var(--text);
+  }
+  .light-theme .theme-switch .switch {
+      transform: translateX(37px);
+    }
+
+  .light-theme .a {
+    color: var(--text); 
+  }
+  .navigation {
+    display: flex;
+    justify-content: center;
+ }
+  ul {
+    display: flex;
+    list-style-type: none;
+ }
+  ul a {
+    margin: 10px 30px;
+    position: relative;
+    color: var(--text);
+    font-family: "Oswald", sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+ }
+  ul a:before {
+    position: absolute;
+    bottom: -2px;
+    content: "";
+    width: 100%;
+    height: 3px;
+    background: var(--highlight);
+    transform: translateX(-100%);
+    opacity: 0;
+ }
+  ul a:hover:before {
+    opacity: 1;
+    transition: 0.5s transform ease, 0.8s opacity ease;
+    transform: translateX(0);
+ }
+  ul .active {
+    color: var(--highlight);
+ }
+  ul .active:hover:before {
+    opacity: 0;
+ }
 .keys {
   display: flex;
   flex: 1;
@@ -22,16 +109,16 @@ body,html {
   font-size: 1.5rem;
   padding: 1rem .5rem;
   transition: all .07s ease;
-  width: 10rem;
+  width: 15rem;
   text-align: center;
-  color: white;
-  text-shadow: 0 0 .5rem rgb(245, 245, 245);
+  color: #ffffff;
+  
 }
 
 .playing {
   transform: scale(1.1);
-  border-color: #000000;
-  box-shadow: 0 0 1rem #000000;
+  border-color: #ffffff;
+  box-shadow: 0 0 1rem #ffffff;
 }
 
 kbd {
@@ -42,6 +129,6 @@ kbd {
 .sound {
   font-size: 1.2rem;
   text-transform: uppercase;
-  letter-spacing: .1rem;
+  letter-spacing: .5rem;
   color: #ffffff;
 }
